@@ -1,0 +1,18 @@
+{
+    "name": "qamarali/PhpFramework",
+    "description": "Best ever framework for making development beautiful",
+    "type": "framework",
+    "authors": [
+        {
+            "name": "qamarai9898",
+            "email": "qamar.ali9898@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Framework\\" : "Framework/src",
+            "App\\" : "app"
+        }
+    },
+    "require": {}
+}
