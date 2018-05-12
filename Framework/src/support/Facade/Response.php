@@ -4,7 +4,7 @@ namespace Framework\Support\Facade;
 
 use Framework\Http\Response as HttpResponse;
 use Framework\View\View;
-
+use Framework\View\Contracts\RenderStrategy;
 
 class Response extends Facade{
 
@@ -30,7 +30,7 @@ class Response extends Facade{
      */
     public function view($path, $params = [] , $statusCode = 200 , $headers = array())
     {
-        $view = new View($path , $params , $statusCode , $headers);
+        $view = new View($path , $params , resolve(RenderStrategy::class) ,  $statusCode , $headers);
         return $view;
     }
 

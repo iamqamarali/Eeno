@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use Framework\Http\Controller;
 
-use Framework\Http\Request;
 use Framework\Support\Facade\Response;
-use Framework\View\View;
 use App\Models\User;
 use App\Repositories\DataRepository;
+
 
 class PagesController extends Controller{
 

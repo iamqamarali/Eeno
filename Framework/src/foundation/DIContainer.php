@@ -17,7 +17,7 @@ class DIContainer{
      * 
      * Register the classes to get the class instances out of DIContainer
      */
-    public static function register($class , \Closure $closure = null)
+    public static function register($class , $closure = null)
     {
         static::$registered[$class] = $closure ? $closure : $class; 
     }

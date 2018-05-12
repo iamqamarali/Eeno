@@ -7,6 +7,7 @@ use Framework\Foundation\DIContainer;
 use Framework\Support\Facade\Route;
 use Framework\Routing\RouteMethodDispatcher;
 use Framework\Support\Facade\Response;
+use Framework\Support\Database;
 
 class Application{
 
@@ -16,6 +17,9 @@ class Application{
     public function handle(Request $request)
     {
         DIContainer::singleton('request' , $request);
+        $this->connectToDatabase();
+
+
         $this->loadRoutes();
 
         $route = Route::current();
@@ -24,6 +28,30 @@ class Application{
 
         return Response::make($response);
     }
+
+
+    /**
+     * 
+     * 
+     * 
+     */
+    public function connectToDatabase()
+    {
+        if(config('app.database.name') == null)
+            return;
+
+        DIContainer::singleton(
+            'database' , 
+            new Database(
+                config('app.database.name') ,
+                config('app.database.host') ,
+                config('app.database.username'),
+                config('app.database.password')
+            )
+        );
+
+    }
+
 
 
     /**

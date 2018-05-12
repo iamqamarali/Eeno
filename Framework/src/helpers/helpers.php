@@ -4,9 +4,20 @@ use Framework\Foundation\DIContainer;
 
 function config($path)
 {
-    $path = explode('.' , $path);
-    $configuration = require 'config/'.$path[0].'.php' ;
-    return isset($configuration[$path[1]]) ? $configuration[$path[1]] : null;
+    $keys = explode('.' , $path);
+    $configuration = require 'config/'.array_shift($keys).'.php' ;
+    return getValue( $keys ,  $configuration);
+}
+
+function getValue($keys , $configuration)
+{
+    $value = $configuration;
+    foreach($keys as $key)
+    {
+        if(array_key_exists( $key , $value ) )
+            $value = $value[$key];
+    }
+    return $value == $configuration ? null : $value;
 }
 
 function views_path($path)
@@ -24,3 +35,5 @@ function asset($path)
 {
     return config('config.assets_path') . $path;
 }
+
+

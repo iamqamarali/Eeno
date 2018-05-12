@@ -3,16 +3,19 @@
 namespace Framework\View;
 
 use Framework\Http\Response;
+use Framework\View\Contracts\RenderStrategy;
 
 
 class View extends Response{
 
     protected $path;
     protected $variables;
+    protected $renderer;
 
-    public function __construct($path , $variables = [] , $statusCode = 200 , $headers = array())
+    public function __construct($path , $variables = [] , RenderStrategy $renderer , $statusCode = 200 , $headers = array())
     {
         parent::__construct(null , $statusCode , $headers );
+        $this->renderer = $renderer;
         $this->path = views_path($path) . '.php' ;
         $this->variables = $variables;
     }
@@ -31,13 +34,7 @@ class View extends Response{
 
     public function render()
     {
-        extract($this->variables());
-
-        ob_start();
-            require $this->path() ;
-        $this->setContent( ob_get_clean() );
-        ob_end_clean();
-        return $this->content();
+        return $this->renderer->render($this);
     }
 
 
