@@ -3,21 +3,21 @@
 namespace Framework\Routing;
 
 use Framework\Http\Request;
+use Framework\Routing\Contracts\RouteInterface;
 
 class RouteMethodDispatcher {
 
     protected $route , $request;
 
-    public function dispatch(Route $route , Request $request)
+    public function dispatch(RouteInterface $route , Request $request)
     {
         $this->route = $route;
         $this->request = $request;
 
         
-        $response = $this->dispatchClosure();
-
-        if(!$response)
+        if(!$response = $this->dispatchClosure())
             $response = $this->dispatchController();
+
 
         return $response;
     }
@@ -25,10 +25,8 @@ class RouteMethodDispatcher {
 
     private function dispatchClosure()
     {
-        $routeData = $this->route->data();
-        
-        if($routeData['function'] instanceof \Closure)
-            return $routeData['function']($this->request);
+        if($this->route->function() instanceof  \Closure)
+            return call_user_func($func, [$this->request]);
         
         return null;
     }
@@ -41,13 +39,10 @@ class RouteMethodDispatcher {
      */
     private function dispatchController()
     {
-        $routeData = $this->route->data();
-        
         return $response = (new ControllerDispatcher(
-                    $routeData['controller'] ,
-                    $routeData['function']
-                )
-            )->dispatch($this->request) ;
+                    $this->route->controller(),
+                    $this->route->function()
+                ))->dispatch($this->request);
     }
 
 

@@ -2,7 +2,6 @@
 
 namespace Framework\Support\Facade;
 
-use Framework\Routing\Route as httpRoute;
 use FrameWork\Foundation\DIContainer;
 
 
@@ -12,14 +11,14 @@ class Route extends Facade{
 
     public static function get($url , $controller_function )
     {
-        $route = new httpRoute($url,  "get" ,$controller_function);
+        $route = DIContainer::make( 'route' ,  $url,  "get" ,$controller_function);
         DIContainer::make('router')->register($route);
         return $route;
     } 
 
     public static function post($url , $controller_function)
     {
-        $route = new httpRoute($url,  "post" ,$controller_function);
+        $route = DIContainer::make( 'route' ,  $url,  "post" ,$controller_function);
         DIContainer::make('router')->register($route);
         return $route;
     }
@@ -28,13 +27,14 @@ class Route extends Facade{
     public static function current()
     {
         if(!self::$current)
-            self::$current = resolve('router')->handleUrl(
-                                                    resolve('request')->url()
-                                                );
+            self::$current = resolve('router')->handleRequest( resolve('request') );
         return self::$current;
     }
 
-
+    public static function route($name)
+    {
+        return  resolve('router')->handleName($name)->url();
+    }
 
 
 }

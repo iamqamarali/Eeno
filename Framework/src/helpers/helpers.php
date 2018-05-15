@@ -1,6 +1,7 @@
 <?php
 
 use Framework\Foundation\DIContainer;
+use Framework\Support\Facade\Route;
 
 function config($path)
 {
@@ -26,7 +27,7 @@ function views_path($path)
 }
 
 
-function resolve($dependency)
+function resolve($dependency )
 {
     return DIContainer::make($dependency);
 }
@@ -37,3 +38,8 @@ function asset($path)
 }
 
 
+
+function route($name)
+{
+    return Route::route($name);
+}

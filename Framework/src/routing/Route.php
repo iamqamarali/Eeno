@@ -2,12 +2,13 @@
 
 namespace Framework\Routing;
 
-use Framework\Routing\Contracts\RouteContract;
+use Framework\Routing\Contracts\RouteResponsibilityContract;
+use Framework\Routing\Contracts\RouteInterface;
 
 
 
 
-class Route implements RouteContract{
+class Route implements RouteResponsibilityContract , RouteInterface {
 
 
     protected $data ;
@@ -16,13 +17,26 @@ class Route implements RouteContract{
      * 
      * Check Weather this route can handle the request or not
      */
-    public function handle($url)
+    public function canHandleRequest(\Framework\Http\Request $request)
     {
-        if($this->data['url'] == $url)
+        if( strcasecmp($request->method() , $this->method() ) == 0 &&
+            strcasecmp($this->url() , $request->url() ) == 0)
+            return true;
+        return false;    
+    }
+
+
+    /**
+     * 
+     * Checks if the route name is the name specfied
+     * 
+     */
+    public function hasName($name)
+    {
+        if(strcasecmp($this->data['name'], $name ) == 0)
             return true;
         return false;
     }
-
 
     /**
      * 
@@ -60,16 +74,6 @@ class Route implements RouteContract{
         return $this->data['name'];
     }
 
-    /**
-     * 
-     * return data
-     */
-    public function data()
-    {
-        return $this->data;
-    }
-
-
     
     /**
      * 
@@ -101,7 +105,7 @@ class Route implements RouteContract{
      */
     public function method()
     {
-        return $this->method;
+        return $this->data['method'];
     }
 
 

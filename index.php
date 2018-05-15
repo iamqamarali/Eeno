@@ -14,35 +14,4 @@ $response = $app->handle(
 $response->send();
 
 
-class a {
-
-    protected $name;
-
-    public function __construct($name)
-    {
-        $this->setName($name);
-    }
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-    public function name()
-    {
-        return $this->name;
-    }
-
-}
-
-class b extends a{
-
-    public function __construct($name)
-    {
-        parent::__construct($name);
-    }
-
-}
-
-
-
 exit(0);
-

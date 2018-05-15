@@ -1,4 +1,3 @@
-    
 
 
 <footer class="footer footer-gray">
@@ -6,8 +5,8 @@
 		<div class="row">
 			<nav class="footer-nav">
 				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="About">About</a></li>
+					<li><a href="<?= route('home') ?>">Home</a></li>
+					<li><a href="<?= route('about') ?>">About</a></li>
 				</ul>
 			</nav>
 			<div class="credits ml-auto">

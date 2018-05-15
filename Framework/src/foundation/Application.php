@@ -9,6 +9,7 @@ use Framework\Routing\RouteMethodDispatcher;
 use Framework\Support\Facade\Response;
 use Framework\Support\Database;
 
+
 class Application{
 
 
@@ -23,6 +24,7 @@ class Application{
         $this->loadRoutes();
 
         $route = Route::current();
+
 
         $response = (new RouteMethodDispatcher())->dispatch($route, $request);
 

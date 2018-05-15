@@ -3,16 +3,16 @@
 namespace Framework\View;
 
 use Framework\Http\Response;
-use Framework\View\Contracts\RenderStrategy;
+use Framework\View\Contracts\ViewRenderStrategy;
 
 
-class View extends Response{
+class View extends Response {
 
     protected $path;
     protected $variables;
     protected $renderer;
 
-    public function __construct($path , $variables = [] , RenderStrategy $renderer , $statusCode = 200 , $headers = array())
+    public function __construct($path , $variables = [] , ViewRenderStrategy $renderer, $statusCode = 200 , $headers = array())
     {
         parent::__construct(null , $statusCode , $headers );
         $this->renderer = $renderer;
@@ -31,7 +31,15 @@ class View extends Response{
         parent::send();
     }
 
+    public function setRenderer(ViewRenderStrategy $renderer)
+    {
+        $this->renderer = $renderer;
+    }
 
+    /**
+     * 
+     * Render the view into the class using the Renderer Strategy 
+     */
     public function render()
     {
         return $this->renderer->render($this);

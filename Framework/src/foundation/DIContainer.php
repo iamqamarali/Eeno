@@ -38,7 +38,7 @@ class DIContainer{
      * Create the instance out of the DIContainer
      * 
      */
-    public static function make($class)
+    public static function make($class , ...$arguments)
     {
         if(!isset(static::$registered[$class]) && !isset(static::$singleton[$class]) )
             throw new ClassNotFoundException("$class Not Registered in the Application's DIContainer");
@@ -47,7 +47,7 @@ class DIContainer{
             return static::$singleton[$class];
 
         if(static::$registered[$class] instanceof \Closure )
-            return static::$registered[$class]();
+            return static::$registered[$class]($arguments);
         
         return new static::$registered[$class];
     }
