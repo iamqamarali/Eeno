@@ -7,7 +7,7 @@
 				<ul>
 					<li><a href="<?= route('home') ?>">Home</a></li>
 					<li><a href="<?= route('about') ?>">About</a></li>
-				</ul>
+				</ul> 
 			</nav>
 			<div class="credits ml-auto">
 				<span class="copyright">

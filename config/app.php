@@ -3,6 +3,7 @@
 
 return [
     'name' => 'Php Framework',
+    'url' => '',
 
     'database' => [
         'name' =>  null,

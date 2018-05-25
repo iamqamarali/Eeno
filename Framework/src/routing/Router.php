@@ -47,7 +47,7 @@ class Router implements RouterChainContract , RouterInterface{
 
     
     /**
-     * 
+     *  
      * 
      * Check whiter route can handle the request
      */
@@ -58,7 +58,7 @@ class Router implements RouterChainContract , RouterInterface{
             if($route->canHandleRequest($request))
                 return $route;
         }
-        throw new RouteNotFoundException('No Route Defined for '. $url);
+        throw new RouteNotFoundException('No Route Defined for '. $request->url());
     }
 
 

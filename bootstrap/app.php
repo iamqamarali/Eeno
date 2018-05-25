@@ -15,9 +15,6 @@ DIContainer::register('app', function(){
     return new Application();
 });
 DIContainer::singleton( 'router' , new Router);
-DiContainer::register('route' , function($args ){
-    return new Route($args[0], $args[1] , $args[2]);
-});
 DIContainer::register( ViewRenderStrategy::class ,  PhpRenderStrategy::class);
  
 
