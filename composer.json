@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Framework\\" : "Framework/src",
+            "Eeno\\" : "Eeno/src",
             "App\\" : "app"
         }
     },

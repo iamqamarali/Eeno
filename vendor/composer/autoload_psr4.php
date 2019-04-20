@@ -6,6 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Framework\\' => array($baseDir . '/Framework/src'),
+    'Eeno\\' => array($baseDir . '/Eeno/src'),
     'App\\' => array($baseDir . '/app'),
 );

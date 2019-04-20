@@ -1,14 +1,14 @@
 <?php
 
-use Framework\Foundation\DIContainer;
-use Framework\Foundation\Application;
-use Framework\Support\DB;
+use Eeno\Foundation\DIContainer;
+use Eeno\Foundation\Application;
+use Eeno\Support\DB;
 
-use Framework\Routing\Router;
+use Eeno\Routing\Router;
 
-use Framework\View\PhpRenderStrategy;
-use Framework\View\Contracts\ViewRenderStrategy;
-use Framework\Routing\Route;
+use Eeno\View\PhpRenderStrategy;
+use Eeno\View\Contracts\ViewRenderStrategy;
+use Eeno\Routing\Route;
 
 
 DIContainer::register('app', function(){

@@ -3,9 +3,9 @@
 
 return [
 
-    'routes_file' => 'app/resources/routes/routing.php',
     'controllers_namespace' => 'App\Http\Controllers\\',
-    'views_path' => 'app/resources/views/',
-    'assets_path' => 'app/resources/assets/'
+    'routes_file' => 'resources/routes/routing.php',
+    'views_path' => 'resources/views/',
+    'assets_path' => 'resources/assets/'
 
 ];

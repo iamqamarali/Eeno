@@ -7,9 +7,9 @@ namespace Composer\Autoload;
 class ComposerStaticInit351db13b9d321670e5301511170d9493
 {
     public static $prefixLengthsPsr4 = array (
-        'F' => 
+        'E' => 
         array (
-            'Framework\\' => 10,
+            'Eeno\\' => 5,
         ),
         'A' => 
         array (
@@ -18,9 +18,9 @@ class ComposerStaticInit351db13b9d321670e5301511170d9493
     );
 
     public static $prefixDirsPsr4 = array (
-        'Framework\\' => 
+        'Eeno\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/Framework/src',
+            0 => __DIR__ . '/../..' . '/Eeno/src',
         ),
         'App\\' => 
         array (

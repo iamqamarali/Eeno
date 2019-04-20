@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Framework\Http\Controller;
+use Eeno\Http\Controller;
 
-use Framework\Support\Facade\Response;
+use Eeno\Support\Facade\Response;
 use App\Models\User;
 use App\Repositories\DataRepository;
 

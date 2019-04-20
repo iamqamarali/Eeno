@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Framework\Support\Model;
+use Eeno\Support\Model;
 
 
 class User extends Model {
