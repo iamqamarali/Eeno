@@ -35,7 +35,7 @@ class ControllerDispatcher {
             throw new ClassNotFoundException('Controller '.$controller_path.' Not Found' );
  
         $this->controller = new $controller_path($request);
-        return call_user_func([$this->controller, $this->method ] );
+        return call_user_func([$this->controller, $this->method ], $request );
     }
 
 

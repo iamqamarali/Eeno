@@ -7,11 +7,11 @@ use Eeno\Http\Controller;
 use Eeno\Support\Facade\Response;
 use App\Models\User;
 use App\Repositories\DataRepository;
-
+use Eeno\Http\Request;
 
 class PagesController extends Controller{
 
-    public function index()
+    public function index(Request $request)
     {   
         $user = new User([
             'name' => 'Qamar Ali',
@@ -19,7 +19,7 @@ class PagesController extends Controller{
             'phone_no' => '090078601'
         ]);
 
-        $dataRepo = new DataRepository();
+        $dataRepo = new DataRepository(); 
 
         return Response::view('index')
                         ->with('user' , $user)

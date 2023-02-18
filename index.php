@@ -7,7 +7,9 @@ require_once __DIR__ . '/Eeno/src/helpers/helpers.php';
 
 $app = require_once __DIR__ . '/bootstrap/app.php';
 
-$response = $app->handle(Request::capture());    
+$response = $app->handle(
+    Request::capture()
+);    
 
 $response->send();
  
