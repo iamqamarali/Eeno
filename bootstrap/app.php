@@ -11,7 +11,7 @@ use Eeno\View\Contracts\ViewRenderStrategy;
 use Eeno\Routing\Route;
 
 
-DIContainer::register('app', function(){
+DIContainer::register('app', function(){ 
     return new Application();
 });
 DIContainer::singleton( 'router' , new Router);

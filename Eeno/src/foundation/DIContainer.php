@@ -22,7 +22,7 @@ class DIContainer{
         static::$registered[$class] = $closure ? $closure : $class; 
     }
 
-
+ 
     /**
      * 
      * 

@@ -28,7 +28,7 @@ class Response extends Facade{
      * 
      * Return a view of the response
      */
-    public function view($path, $params = [] , $statusCode = 200 , $headers = array())
+    public static function view($path, $params = [] , $statusCode = 200 , $headers = array())
     {
         $view = new View($path , $params, resolve(ViewRenderStrategy::class) , $statusCode , $headers);
         return $view;

@@ -17,7 +17,7 @@ class Router implements RouterChainContract , RouterInterface{
     {
         require $file;
         return $this;
-    }
+    } 
 
 
     

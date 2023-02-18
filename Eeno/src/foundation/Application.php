@@ -63,7 +63,7 @@ class Application{
      */
     private function loadRoutes()
     {
-        $router = DIContainer::make('router');
+        $router = DIContainer::make('router'); 
         $router->loadRoutesFromFile(config('config.routes_file'));
     }
 
